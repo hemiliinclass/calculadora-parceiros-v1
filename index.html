@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora ClassApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Mensalidade ClassApp</h1>
+        <p>Insira o número de alunos para calcular:</p>
+        <input type="number" id="numAlunos" placeholder="Digite o número de alunos" />
+        <button onclick="calcular()">Calcular</button>
+        <div id="mensalidadePorAluno" class="result"></div>
+        <div id="valorFixo" class="result"></div>
+    </div>
+    <script>
+        function calcular() {
+            const numAlunos = document.getElementById("numAlunos").value;
+            if (!numAlunos || numAlunos <= 0) {
+                alert("Por favor, insira um número válido de alunos.");
+                return;
+            }
+            const mensalidadePorAluno = 10; // Exemplo de valor por aluno
+            const valorFixo = 100; // Exemplo de valor fixo
+            document.getElementById("mensalidadePorAluno").textContent =
+                `Mensalidade por aluno: R$ ${(mensalidadePorAluno * numAlunos).toFixed(2)}`;
+            document.getElementById("valorFixo").textContent =
+                `Valor fixo: R$ ${valorFixo.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
